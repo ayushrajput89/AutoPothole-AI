@@ -1,0 +1,28 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# SQLite Database (Exclude live database to avoid conflicts)
+*.db
+*.sqlite3
+
+# Virtual Environments
+venv/
+env/
+.env
+
+# Temp files / OS generated
+.DS_Store
+Thumbs.db
+
+# Ultralytics/YOLO cache
+runs/
+*.cache
+
+# Large dataset folders
+dataset/
+datasets/
+test-img-video/
+results/
+runs/
