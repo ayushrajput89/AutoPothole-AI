@@ -6,7 +6,7 @@ import sys
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from database.db_manager import init_db, migrate_from_csv
-from ui import dashboard, detection_ui, reports_ui
+from ui import dashboard, detection_ui, reports_ui, analytics_ui
 
 st.set_page_config(page_title="AutoPothole AI", layout="wide", initial_sidebar_state="expanded")
 
@@ -31,7 +31,7 @@ st.sidebar.markdown("<h1 style='color:#3b82f6;'>🛡️ Road Safety AI</h1>", un
 st.sidebar.markdown("Autonomous Pothole Intelligence")
 st.sidebar.markdown("---")
 
-menu = st.sidebar.radio("NAVIGATION", ["📊 Live GIS Dashboard", "📡 AI Detection Hub", "📄 Maintenance Reports"])
+menu = st.sidebar.radio("NAVIGATION", ["📊 Live GIS Dashboard", "📡 AI Detection Hub", "📄 Maintenance Reports", "📈 Model Analytics"])
 
 st.sidebar.markdown("---")
 st.sidebar.info("System Status: ACTIVE ✅\n\nDatabase: SQLite Connected")
@@ -42,3 +42,5 @@ elif menu == "📡 AI Detection Hub":
     detection_ui.show()
 elif menu == "📄 Maintenance Reports":
     reports_ui.show()
+elif menu == "📈 Model Analytics":
+    analytics_ui.show()
