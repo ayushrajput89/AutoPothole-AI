@@ -53,10 +53,22 @@ def extract_gps(image_path):
     lon = 81.782 + random.uniform(-0.01, 0.01)
     return lat, lon, False
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 class PotholeDetector:
-    def __init__(self, model_path="E:/pothole_ai/runs/detect/train/weights/best.pt"):
-        if not os.path.exists(model_path):
-            model_path = "E:/pothole_ai/yolov8n.pt"
+    def __init__(self, model_path=None):
+        if not model_path:
+            preferred_weights = [
+                os.path.join(BASE_DIR, "weights", "best.pt"),
+                os.path.join(BASE_DIR, "runs", "detect", "train", "weights", "best.pt"),
+                os.path.join(BASE_DIR, "yolov8n.pt")
+            ]
+            for w in preferred_weights:
+                if os.path.exists(w):
+                    model_path = w
+                    break
+        if not model_path or not os.path.exists(model_path):
+            model_path = "yolov8n.pt"
         self.model = YOLO(model_path)
     
     def classify_severity(self, area):

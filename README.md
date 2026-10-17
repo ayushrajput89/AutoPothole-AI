@@ -3,7 +3,11 @@
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Python](https://img.shields.io/badge/python-3.9%2B-green.svg)
 ![YOLOv8](https://img.shields.io/badge/YOLO-v8-yellow.svg)
-![Streamlit](https://img.shields.io/badge/Streamlit-App-red.svg)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://autopothole-ai.streamlit.app)
+
+## 🌐 Live Demo
+🔗 **Experience the Live Web App:** [https://autopothole-ai.streamlit.app](https://autopothole-ai.streamlit.app)  
+*(Deployed on Streamlit Community Cloud)*
 
 ## 📌 Overview
 Large potholes on state and national highways cause daily accidents and vehicle damage. Traditional detection relies on manual inspection rounds or citizen complaints, both of which are slow and incomplete. 
@@ -16,6 +20,7 @@ Large potholes on state and national highways cause daily accidents and vehicle 
 * **📏 Smart Severity Classification:** Automatically categorizes defects into `Low`, `Medium`, or `High` severity based on the bounding box area and defect density.
 * **📍 EXIF Geotagging Extraction:** Seamlessly extracts real-world GPS coordinates directly from the image metadata. If GPS data is stripped, it flags the detection as simulated to prevent false automation.
 * **🗺️ Live Strategic GIS Dashboard:** A premium, interactive dashboard built with Streamlit, Plotly, and Folium. It visualizes defect clusters using Point Markers and Heatmaps.
+* **📊 Model Analytics & KPIs:** Embedded evaluation charts displaying 89.4% mAP@50, 45 FPS inference speeds, loss curves, and validation confusion matrices.
 * **🤖 Automated API Mockup & PDF Generation:** Eliminates the need for manual data entry. High-severity detections trigger an automated API payload generation and create official, formatted PDF Maintenance Tickets for Road Authorities.
 
 ## 📂 System Architecture
@@ -31,8 +36,13 @@ pothole_ai/
 ├── ui/
 │   ├── dashboard.py         # Folium GIS Maps & Analytics
 │   ├── detection_ui.py      # Plotly interactive Image/Video processing Hub
-│   └── reports_ui.py        # Automated API triggering and PDF Downloads
+│   ├── reports_ui.py        # Automated API triggering and PDF Downloads
+│   └── analytics_ui.py      # Precision, Loss Curves, and Confusion Matrix
+├── weights/
+│   └── best.pt              # Custom trained YOLOv8 pothole detection weights
 ├── assets/                  # CSS, Fonts, and generated PDF reports
+├── packages.txt             # Linux system dependencies for cloud deployment
+├── requirements.txt         # Python library dependencies
 ├── yolov8n.pt               # Fallback YOLO weights
 └── main_app.py              # Main Streamlit application entry point
 ```
@@ -47,7 +57,7 @@ pothole_ai/
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/AutoPothole-AI.git
+   git clone https://github.com/ayushrajput89/AutoPothole-AI.git
    cd AutoPothole-AI
    ```
 

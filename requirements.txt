@@ -4,6 +4,6 @@ folium
 streamlit-folium
 plotly
 ultralytics
-opencv-python
+opencv-python-headless
 Pillow
 fpdf2

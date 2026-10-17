@@ -2,7 +2,11 @@ import os
 from fpdf import FPDF
 from datetime import datetime
 
-def generate_pdf_report(pothole_data, output_dir="E:/pothole_ai/assets/reports"):
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+def generate_pdf_report(pothole_data, output_dir=None):
+    if output_dir is None:
+        output_dir = os.path.join(BASE_DIR, "assets", "reports")
     os.makedirs(output_dir, exist_ok=True)
     
     ticket_id = pothole_data.get('id', 'N/A')
